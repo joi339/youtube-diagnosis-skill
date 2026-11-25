@@ -30,7 +30,8 @@ If none exists, this is the first run:
   1. Channel niche, and long-form or Shorts?
   2. Roughly how many videos are published?
   3. 2–3 competitor or inspiration channels.
-  4. **Your channel's averages for the last 90 days** (the default; the user can pick another period, such as 28 days or 365 days, and can change it later, so save the period in the log), from YouTube Studio → Analytics → Reach and Engagement: impressions CTR, average view duration, and (if shown) typical impressions or views per video. This gives a fair baseline from the very first run. It's optional, so if the user skips it, say the first diagnosis will be rougher.
+  4. **Your channel's averages for the last 90 days** (the default; the user can pick another period, such as 28 days or 365 days, and can change it later, so save the period in the log), from YouTube Studio → Analytics → Reach and Engagement: impressions CTR, average view duration, and (if shown) typical impressions or views per video. Also ask for the typical **% still watching at 0:30** from 3–5 recent videos' retention reports, if they can check. This gives a fair baseline from the very first run. It's optional, so if the user skips it, say the first diagnosis will be rougher.
+  5. **If the channel already has videos:** "Want to log your last 5–20 videos now? Their 7-day numbers (Advanced mode) make the advice personal much sooner." Every video logged this way counts toward the stage. Optional.
 - Save the answers in the log, then go to step 3.
 
 ## 2. Check last time's action item (skip on the first run)
@@ -42,7 +43,9 @@ Read the last row in **Action items**. Ask: "Did you apply it to this video?"
 | **Yes** | Compare the metric it targeted with the target written in the log. Mark it **worked** (target reached), **no change**, or **worse**. |
 | **No** | Mark it **not tried** and carry it forward, unless the new diagnosis finds a bigger problem. |
 
-If it **worked** twice on this channel, add it to **Learned rules** as a proven fix for this channel.
+Also ask: **"Did anything else change on this video?"** (topic, format, length, upload time). If yes and the result is good, mark it **worked, but mixed with [the other change]**. Say in WHY that it can't tell which change caused it, and don't count it toward Learned rules.
+
+If it **worked** twice on this channel, with nothing else changing, add it to **Learned rules** as a proven fix for this channel.
 
 ## 3. Diagnose the new video
 
@@ -58,6 +61,7 @@ Use numbers from the same age every time. **7 days after publishing is the defau
 | Metric | Long-form | Shorts |
 |---|---|---|
 | Title, topic, format | Yes | Yes |
+| Publish date | Yes | Yes |
 | Impressions | Yes | – |
 | Impressions click-through rate (CTR) | Yes | – |
 | Views | Yes | Yes |
@@ -67,7 +71,7 @@ Use numbers from the same age every time. **7 days after publishing is the defau
 | Top traffic sources (Browse, Suggested, Search, Subscriptions/notifications/channel page, External) | Yes | Yes |
 | Biggest dip in the retention graph after 0:30 (time, and roughly how big). Optional, needed for check 5. | Yes | Yes |
 
-**Pick the stage** from the number of videos in the log:
+**Pick the stage** from the number of videos in the log (including any logged during setup). It counts logged videos, not published ones, because the baselines need each video's numbers:
 
 | Stage | Videos logged | What changes |
 |---|---|---|
@@ -81,7 +85,7 @@ Use numbers from the same age every time. **7 days after publishing is the defau
 3. The median of the logged videos (if 3 or more are logged).
 4. The previous logged video.
 
-The general "2–10% CTR for half of channels" (YouTube's figure) is **only a rough guide**. Never call packaging the problem from it alone unless CTR is under 2%. If a metric has no baseline at all, that check is **"can't judge yet"**: say so, and don't count it as healthy.
+The general "2–10% CTR for half of channels" (YouTube's figure) is **only a rough guide**. Never call packaging the problem from it alone unless CTR is under 2%. If a metric has no baseline at all, that check is **"can't judge yet"**: say so, and don't count it as healthy. If the baseline is only one earlier video, it's thin: you can still use it, but say "only one earlier video to compare with" in WHY.
 
 **Find the first broken link.** Check in this order and stop at the first one that is clearly below the baseline:
 
@@ -98,7 +102,7 @@ The general "2–10% CTR for half of channels" (YouTube's figure) is **only a ro
 
 Exactly one. Make it specific, doable on the very next video, and measurable.
 
-**The target** is the baseline you used. If the video already beat the baseline (for example after a fix worked), the target is this video's value.
+**The target** is the baseline you used. When the action item is to repeat something that worked, the target is still the baseline, because the fix should keep beating the channel's usual, not match one good video exactly.
 
 Output this box, plus one line after it saying where the log was saved:
 
@@ -141,7 +145,7 @@ Where to save it:
 
 ## 6. Report a problem to the skill's creator
 
-*Skill version: 1.0*
+*Skill version: 1.1*
 *Report page: https://github.com/joi339/youtube-diagnosis-skill/issues/new?template=problem-report.yml (GitHub Issues: the reporter needs a free GitHub account, and **issues are public**)*
 
 Use this when:
@@ -155,21 +159,21 @@ Steps:
 2. If yes, write the report:
 
 ```
-SKILL: youtube-diagnosis v1.0
+SKILL: youtube-diagnosis v1.1
 WHERE: [claude.ai chat / Claude Project / Claude Code / Cowork]
 WHAT HAPPENED: [one or two sentences]
 WHAT YOU EXPECTED: [one sentence]
 STEP IT HAPPENED IN: [setup / loading the log / reading the numbers / diagnosis / saving the log]
 INPUT TYPE: [typed / Studio export / screenshots]
 ERROR MESSAGE (if any): [exact text]
-STAGE: [1, 2 or 3] · [N] videos logged
+STAGE: [1, 2 or 3] - [N] videos logged
 ```
 
-3. **Keep it anonymous. GitHub issues are public, so anyone can read them.** Leave out the channel name, video titles, analytics numbers, email and any personal details. Only add numbers or a log extract if the user says yes after being told it will be public, and show exactly what would be added first.
+3. **Keep it anonymous. GitHub issues are public, so anyone can read them.** Leave out the channel name, video titles, analytics numbers, email and any personal details. Then ask: "Want to add any numbers or part of your log? It will be public." The default is no. If yes, show exactly what would be added first.
 4. Show the report, then build the **one-click link**:
    - Start from: `https://github.com/joi339/youtube-diagnosis-skill/issues/new?template=problem-report.yml&title=`
    - After `title=`, add a short URL-encoded title, e.g. `Problem%3A%20screenshot%20not%20read`.
-   - Then add `&report=` followed by the report, URL-encoded: spaces → `%20`, new lines → `%0A`, `:` → `%3A`, `/` → `%2F`, `&` → `%26`, `#` → `%23`, `?` → `%3F`, `=` → `%3D`, `+` → `%2B`, `%` → `%25`.
+   - Then add `&report=` followed by the report, URL-encoded: spaces → `%20`, new lines → `%0A`, `:` → `%3A`, `/` → `%2F`, `&` → `%26`, `#` → `%23`, `?` → `%3F`, `=` → `%3D`, `+` → `%2B`, `%` → `%25`, `(` → `%28`, `)` → `%29`, `'` → `%27`, `"` → `%22`. Any other non-English character (é, ·, →, emoji) becomes its UTF-8 bytes, e.g. `é` → `%C3%A9`. If unsure, replace it with a plain letter or remove it.
    - Check the finished link has no raw spaces or new lines left.
    - Keep the report short. If the link would be over about 1,800 characters, shorten WHAT HAPPENED.
 

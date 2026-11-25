@@ -38,6 +38,6 @@
 
 - *(empty for now)*
 
-## Learned rules (fixes that worked twice on THIS channel)
+## Learned rules (fixes that worked twice on THIS channel, with nothing else changing)
 
 - *(empty for now)*
