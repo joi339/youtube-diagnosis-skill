@@ -1,0 +1,30 @@
+name: Problem report
+description: Something in the YouTube Diagnosis skill didn't work. Paste the report Claude wrote for you.
+title: "Problem: "
+labels: ["problem-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **This page is public.** Please don't include passwords, logins, your email, your channel name or your analytics numbers.
+  - type: textarea
+    id: report
+    attributes:
+      label: The report Claude wrote
+      description: Paste it here (or it's already filled in if you clicked the link from Claude).
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where were you using the skill?
+      options:
+        - claude.ai chat
+        - Claude Project
+        - Claude Code
+        - Cowork
+        - Other
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else you want to add?
